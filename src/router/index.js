@@ -1,5 +1,6 @@
 import {createRouter, createWebHistory} from "vue-router"
 import HomeView from "@/views/HomeView.vue";
+// Todo: Do we want an aboutPage?
 // import AboutView from "@/views/AboutView.vue";
 import NotFoundView from "@/views/404View.vue";
 import QuizView from "@/views/QuizView.vue";
@@ -10,8 +11,6 @@ import ForgotPasswordView from "@/views/ForgotPasswordView.vue"
 import MeView from "@/views/MeView.vue";
 import useAuthUser from "@/utils/UseAuthUser";
 import ResetPasswordView from "@/views/ResetPasswordView.vue";
-
-
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -66,9 +65,6 @@ const router = createRouter({
             path: "/reset-password",
             name: "resetPassword",
             component: ResetPasswordView,
-            // meta: {
-            //     requiresAuth: true,
-            // },
         },
         {
             name: "logout",
@@ -83,16 +79,6 @@ const router = createRouter({
     ]
 }) 
 
-// router.beforeEach((to) => {
-
-//     // here we check it the user is logged in
-//     // if they aren't and the route requries auth we redirect to the login page
-//     const { isLoggedIn } = useAuthUser();
-//   if (!isLoggedIn() && to.meta.requiresAuth) {
-//     return { name: "login" };
-//   }
-// });
-
 router.beforeEach((to) => {
     const { isLoggedIn } = useAuthUser();
     if (
@@ -104,6 +90,4 @@ router.beforeEach((to) => {
     }
   });
 
-
 export default router
-// definite le rules, si modifica il file main.js

@@ -3,29 +3,23 @@ import { ref } from "vue";
 import useAuthUser from "@/utils/UseAuthUser";
 import { useRouter } from "vue-router";
 
-// Use necessary composables
 const router = useRouter();
 const { register } = useAuthUser();
 
-// Form reactive ref to keep up with the form data
 const form = ref({
   name: "",
   email: "",
   password: "",
 });
 
-// function to hand the form submit
 const handleSubmit = async () => {
   try {
-    // use the register method from the AuthUser composable
     await register({
       email: form.value.email,
       password: form.value.password,
       name: form.value.name,
     });
 
-    // and redirect to a EmailConfirmation page the will instruct
-    // the user to confirm they're email address
     router.push({
       name: "emailConfirmation",
       query: { email: form.value.email },

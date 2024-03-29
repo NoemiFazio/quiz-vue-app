@@ -1,8 +1,5 @@
 <script setup>
-import {
-  // defineProps,
-  ref,
-} from "vue";
+import { ref } from "vue";
 import { RouterLink } from "vue-router";
 
 const { numberOfCorrectAnswers, totalQuestionsNumber } = defineProps([

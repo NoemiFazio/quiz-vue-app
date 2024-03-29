@@ -1,3 +1,4 @@
+<!-- Todo: styling this page -->
 <script setup>
 import { RouterLink } from "vue-router";
 </script>

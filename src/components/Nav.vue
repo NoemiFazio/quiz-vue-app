@@ -1,3 +1,4 @@
+<!-- Todo: Styling the nav -->
 <script setup>
 import { RouterLink } from "vue-router";
 </script>

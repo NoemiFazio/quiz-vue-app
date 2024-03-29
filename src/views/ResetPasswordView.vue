@@ -3,18 +3,13 @@ import useAuthUser from "@/utils/UseAuthUser";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-// use necessary composables
 const { update } = useAuthUser();
-
-// keep up with email
 
 const form = ref({
   email: "",
   password: "",
 });
 
-// function to call on submit of the form
-// triggers sending the reset email to the user
 const handleUpdatePassword = async () => {
   await update({ email: form.value.email, password: form.value.password });
   router.push({

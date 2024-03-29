@@ -1,6 +1,4 @@
 <script setup>
-// import { defineProps, defineEmits } from "vue";
-// questo defineEmits permette di passare qualcosa dal child al parent
 const emit = defineEmits(["selectOption"]);
 
 const { question } = defineProps(["question"]);

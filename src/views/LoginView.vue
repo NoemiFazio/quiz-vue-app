@@ -3,29 +3,14 @@ import { ref } from "vue";
 import useAuthUser from "@/utils/UseAuthUser";
 import { useRouter } from "vue-router";
 
-// Use necessary composables
 const router = useRouter();
 const { login, loginWithSocialProvider } = useAuthUser();
 
-// keep up with form data
 const form = ref({
   email: "",
   password: "",
 });
 
-// call the proper login method from the AuthUser composable
-// on the submit of the form
-
-// const handleLogin = async (provider) => {
-//   try {
-//     provider
-//       ? await loginWithSocialProvider(provider)
-//       : await login(form.value);
-//     router.push({ name: "Me" });
-//   } catch (error) {
-//     alert(error.message);
-//   }
-// };
 const handleLogin = async (event, provider) => {
   event.preventDefault();
   try {
